@@ -11,15 +11,16 @@ class Boid {
   }
 
   alignment(boids) {
-    const a_distance = 100;
-    const a_strength = 1;
-
     let avg = createVector();
     let neighbors = 0;
     let distance;
     for (let boid of boids) {
       distance = dist(this.pos.x, this.pos.y, boid.pos.x, boid.pos.y);
-      if (boid != this && distance < a_distance) {
+      if (
+        boid != this &&
+        distance < params.visible_range &&
+        distance > params.close_range
+      ) {
         avg.add(boid.vel);
         neighbors++;
       }
@@ -28,19 +29,20 @@ class Boid {
       avg.div(neighbors);
       avg.sub(this.vel);
     }
-    return avg.mult(a_strength);
+    return avg.mult(params.alignment_factor);
   }
 
   cohesion(boids) {
-    const c_distance = 100;
-    const c_strength = 1;
-
     let avg = createVector();
     let neighbors = 0;
     let distance;
     for (let boid of boids) {
       distance = dist(this.pos.x, this.pos.y, boid.pos.x, boid.pos.y);
-      if (boid != this && distance < c_distance) {
+      if (
+        boid != this &&
+        distance < params.visible_range &&
+        distance > params.close_range
+      ) {
         avg.add(boid.pos);
         neighbors++;
       }
@@ -49,33 +51,58 @@ class Boid {
       avg.div(neighbors);
       avg.sub(this.pos);
     }
-    return avg.mult(c_strength);
+    return avg.mult(params.cohesion_factor);
   }
 
   seperation(boids) {
-    const s_distance = 25;
-    const s_strength = 1;
-
     let close = createVector();
     let distance;
     for (let boid of boids) {
       distance = dist(this.pos.x, this.pos.y, boid.pos.x, boid.pos.y);
-      if (boid != this && distance < s_distance) {
+      if (boid != this && distance < params.close_range) {
         close.add(p5.Vector.sub(this.pos, boid.pos));
       }
     }
-    return close.mult(s_strength);
+    return close.mult(params.seperation_factor);
+  }
+
+  edgeAvoidance() {
+    let edge = createVector();
+    if (this.pos.x < params.margin)
+      edge.add(createVector(params.edge_avoidance, 0));
+    if (this.pos.x > width - params.margin)
+      edge.sub(createVector(params.edge_avoidance, 0));
+    if (this.pos.y < params.margin)
+      edge.add(createVector(0, params.edge_avoidance));
+    if (this.pos.y > height - params.margin)
+      edge.sub(createVector(0, params.edge_avoidance));
+    return edge;
+  }
+
+  limitVel() {
+    let vel = this.vel.mag();
+    if (vel > params.max_speed) this.vel.setMag(params.max_speed);
+    if (vel < params.min_speed) this.vel.setMag(params.min_speed);
   }
 
   flock(boids) {
     let alignment = this.alignment(boids);
     let cohesion = this.cohesion(boids);
     let seperation = this.seperation(boids);
+    let edgeAvoidance = this.edgeAvoidance();
+
+    this.acc.set(0);
+    this.acc.add(alignment);
+    this.acc.add(cohesion);
+    this.acc.add(seperation);
+    this.acc.add(edgeAvoidance);
   }
 
   update() {
     this.pos.add(this.vel);
     this.vel.add(this.acc);
+
+    this.limitVel();
   }
 
   draw() {

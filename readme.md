@@ -4,15 +4,14 @@ A place to play with fun and interesting algorithms using the javascript canvas 
 
 ## Completed
 
-- ...
+- Boids algorithm
 
 ## Working On
 
-- Boids refactor
+- ...
 
 ## Need Refactoring
 
-- Boids algorithm
 - Sorting algorithm visualizer
 - Maze generation and solution
 - Steering algorithm
