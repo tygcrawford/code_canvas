@@ -106,7 +106,15 @@ class Boid {
   }
 
   draw() {
+    strokeWeight(10);
     point(this.pos);
+    strokeWeight(1);
+    line(
+      this.pos.x,
+      this.pos.y,
+      this.pos.x + this.vel.x * 10,
+      this.pos.y + this.vel.y * 10
+    );
   }
 }
 
@@ -131,15 +139,7 @@ class Flock {
 
   draw() {
     for (let boid of this.boids) {
-      strokeWeight(10);
       boid.draw();
-      strokeWeight(1);
-      line(
-        boid.pos.x,
-        boid.pos.y,
-        boid.pos.x + boid.vel.x * 10,
-        boid.pos.y + boid.vel.y * 10
-      );
     }
   }
 }

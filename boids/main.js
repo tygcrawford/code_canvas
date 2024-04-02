@@ -7,8 +7,8 @@ const params = {
   cohesion_factor: 0.0005,
   margin: 50,
   edge_avoidance: 0.2,
-  max_speed: 2,
-  min_speed: 1,
+  max_speed: 4,
+  min_speed: 2,
   boids_num: 20,
 };
 
@@ -17,7 +17,7 @@ params.reset = () => {
 };
 
 function datSetup() {
-  var gui = new dat.GUI({ name: "My GUI" });
+  var gui = new dat.GUI({ name: "Boids Params" });
   gui.add(params, "visible_range", 0, 200);
   gui.add(params, "close_range", 0, 200);
   gui.add(params, "alignment_factor", 0, 0.1);

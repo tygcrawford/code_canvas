@@ -8,14 +8,13 @@ A place to play with fun and interesting algorithms using the javascript canvas 
 
 ## Working On
 
-- ...
+- Rendered 2D raycasting
 
 ## Need Refactoring
 
 - Sorting algorithm visualizer
 - Maze generation and solution
 - Steering algorithm
-- Stylized clock
 
 ## To-do
 
@@ -24,7 +23,6 @@ A place to play with fun and interesting algorithms using the javascript canvas 
 - Fourier drawing
 - Cellular Automata
 - Ray marching
-- Rendered 2D raycasting
 - Marching squares
 - Wave function collapse
 - Fluid simulation
