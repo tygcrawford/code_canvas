@@ -6,9 +6,7 @@ const params = {
   rays: 60,
 };
 
-params.reset = () => {
-  generateMap();
-};
+params.reset = () => {};
 
 function datSetup() {
   var gui = new dat.GUI({ name: "Raycasting Params" });
