@@ -16,14 +16,22 @@ class Player {
     }
     for (let ray of rays) {
       let min_ray = null;
+      let min_wall = null;
       for (let wall of walls) {
         let current_ray = ray.raycast(wall);
-        if (min_ray == null) min_ray = current_ray;
+        if (min_ray == null) {
+          min_ray = current_ray;
+          min_wall = wall;
+        }
         else if (current_ray != null) {
-          if (ray.pos.dist(current_ray) < ray.pos.dist(min_ray)) min_ray = current_ray;
+          if (ray.pos.dist(current_ray) < ray.pos.dist(min_ray)){
+            min_ray = current_ray;
+            min_wall = wall;
+          }
         }
       }
       ray.cast = min_ray;
+      ray.wall = min_wall;
     }
     return rays;
   }

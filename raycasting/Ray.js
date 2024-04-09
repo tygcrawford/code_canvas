@@ -3,6 +3,7 @@ class Ray {
     this.pos = pos;
     this.dir = dir;
     this.cast = null;
+    this.wall;
   }
 
   raycast(line) {
@@ -15,6 +16,7 @@ class Ray {
     let x4 = this.pos.x;
     let y4 = this.pos.y;
 
+
     let t =
       ((x1 - x3) * (y3 - y4) - (y1 - y3) * (x3 - x4)) /
       ((x1 - x2) * (y3 - y4) - (y1 - y2) * (x3 - x4));
@@ -26,6 +28,18 @@ class Ray {
     if (!intersection) return null;
 
     return createVector(x1 + t * (x2 - x1), y1 + t * (y2 - y1));
+  }
+
+  horizontalIntersect() {
+    if(this.wall == undefined) return false
+    if(this.wall.p1.y == this.wall.p2.y) return true
+    return false
+  }
+
+  verticalIntersect() {
+    if(this.wall == undefined) return false
+    if(this.wall.p1.x == this.wall.p2.x) return true
+    return false
   }
   
   draw() {
