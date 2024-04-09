@@ -2,9 +2,10 @@ class Ray {
   constructor(pos, dir) {
     this.pos = pos;
     this.dir = dir;
+    this.cast = null;
   }
 
-  cast(line) {
+  raycast(line) {
     let x1 = line.p1.x;
     let y1 = line.p1.y;
     let x2 = line.p2.x;
@@ -25,5 +26,13 @@ class Ray {
     if (!intersection) return null;
 
     return createVector(x1 + t * (x2 - x1), y1 + t * (y2 - y1));
+  }
+  
+  draw() {
+    strokeWeight(1);
+    if (this.cast != null) {
+      stroke(255);
+      line(this.pos.x, this.pos.y, this.cast.x, this.cast.y);
+    }
   }
 }

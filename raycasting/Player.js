@@ -14,18 +14,18 @@ class Player {
       rays.push(new Ray(this.pos, startDir.copy()));
       startDir.rotate((PI * 2 * params.fov) / 360 / params.rays);
     }
-    for (let r of rays) {
-      let p;
+    for (let ray of rays) {
+      let min_ray = null;
       for (let wall of walls) {
-        let c = r.cast(wall);
-        if (p == undefined || p == null) p = c;
-        else if (c != null) {
-          if (r.pos.dist(c) < r.pos.dist(p)) p = c;
+        let current_ray = ray.raycast(wall);
+        if (min_ray == null) min_ray = current_ray;
+        else if (current_ray != null) {
+          if (ray.pos.dist(current_ray) < ray.pos.dist(min_ray)) min_ray = current_ray;
         }
       }
-      strokeWeight(1);
-      if (p != null && p != undefined) line(r.pos.x, r.pos.y, p.x, p.y);
+      ray.cast = min_ray;
     }
+    return rays;
   }
 
   draw() {
