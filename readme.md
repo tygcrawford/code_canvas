@@ -6,10 +6,12 @@ A place to play with fun and interesting algorithms using the javascript canvas 
 
 - [Boids algorithm](https://tygcrawford.github.io/code_canvas/boids)
 - [Raycasting](https://tygcrawford.github.io/code_canvas/raycasting)
+- [Worley Noise](https://tygcrawford.github.io/code_canvas/worley_noise) (Still needs more controls)
+- [Marching squares](https://tygcrawford.github.io/code_canvas/marching_squares) (Still needs more controls)
 
 ## Working On
 
-- [Worley Noise](https://tygcrawford.github.io/code_canvas/worley_noise)
+- Ray marching
 
 ## Need Refactoring
 
@@ -23,7 +25,5 @@ A place to play with fun and interesting algorithms using the javascript canvas 
 - Fourier series
 - Fourier drawing
 - Cellular Automata
-- Ray marching
-- Marching squares
 - Wave function collapse
 - Fluid simulation
