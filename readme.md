@@ -1,6 +1,6 @@
 # Code Canvas
 
-A place to play with fun and interesting algorithms using the javascript canvas as a mediumhttps://tygcrawford.github.io/code_canvas
+A place to play with fun and interesting algorithms using the javascript canvas as a medium.
 
 ## Completed
 
