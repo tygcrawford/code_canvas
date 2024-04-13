@@ -1,21 +1,21 @@
 # Code Canvas
 
-A place to play with fun and interesting algorithms using the javascript canvas as a medium.
+A place to play with fun and interesting algorithms using the javascript canvas as a mediumhttps://tygcrawford.github.io/code_canvas
 
 ## Completed
 
-- (Boids algorithm)[./boids]
-- (Raycasting)[./raycasting]
+- [Boids algorithm](https://tygcrawford.github.io/code_canvas/boids)
+- [Raycasting](https://tygcrawford.github.io/code_canvas/raycasting)
 
 ## Working On
 
-- (Worley Noise)[./worley_noise]
+- [Worley Noise](https://tygcrawford.github.io/code_canvas/worley_noise)
 
 ## Need Refactoring
 
-- (Sorting algorithm visualizer)[./old_sorting_alg_page]
-- (Maze generation and solution)[./old_maze_gen]
-- (Steering algorithm)[./old_steering]
+- [Sorting algorithm visualizer](https://tygcrawford.github.io/code_canvas/old_sorting_alg_page)
+- [Maze generation and solution](https://tygcrawford.github.io/code_canvas/old_maze_gen)
+- [Steering algorithm](https://tygcrawford.github.io/code_canvas/old_steering)
 
 ## To-do
 
