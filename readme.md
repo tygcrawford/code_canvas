@@ -4,17 +4,18 @@ A place to play with fun and interesting algorithms using the javascript canvas 
 
 ## Completed
 
-- Boids algorithm
+- (Boids algorithm)[./boids]
+- (Raycasting)[./raycasting]
 
 ## Working On
 
-- Rendered 2D raycasting
+- (Worley Noise)[./worley_noise]
 
 ## Need Refactoring
 
-- Sorting algorithm visualizer
-- Maze generation and solution
-- Steering algorithm
+- (Sorting algorithm visualizer)[./old_sorting_alg_page]
+- (Maze generation and solution)[./old_maze_gen]
+- (Steering algorithm)[./old_steering]
 
 ## To-do
 
