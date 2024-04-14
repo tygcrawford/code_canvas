@@ -12,6 +12,7 @@ A place to play with fun and interesting algorithms using the javascript canvas 
 ## Working On
 
 - Ray marching
+- [Bezier curves](https://tygcrawford.github.io/code_canvas/bezier_curves)
 
 ## Need Refactoring
 
