@@ -12,7 +12,10 @@ class Mouse {
 
   update(points) {
     this.pos.set(mouseX, mouseY)
-    if (this.grabbing != null) this.grabbing.pos.set(this.pos)
+    if (this.grabbing != null) {
+      this.grabbing.pos.set(this.pos)
+      return
+    }
     let point = this.checkPoints(points)
     if (point != null) {
       cursor('grab')

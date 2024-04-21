@@ -1,5 +1,5 @@
 let points;
-let curve;
+let cubic, quadratic;
 let mouse;
 
 let t;
@@ -12,28 +12,39 @@ params.reset = () => {
 
 function datSetup() {
   var gui = new dat.GUI({ name: "Bezier Curves Params" });
-  // gui.add(params, "t", 0, 1, 0.01);
   gui.add(params, "reset");
   gui.close();
 }
 
 function setup() {
-  createCanvas(400, 400);
-  datSetup()
+  createCanvas(800, 400);
 
   mouse = new Mouse();
 
   points = []
 
-  let p1 = new Point(300, 100)
-  let p2 = new Point(100, 300)
-  let cp = new Point(100, 100)
+  let p1 = new Point(50, 200)
+  let p2 = new Point(350, 200)
+  let cp1 = new Point(50, 50)
+  let cp2 = new Point(350, 50)
 
-  curve = new QuadraticBezier(p1.pos, p2.pos, cp.pos);
+  cubic = new CubicBezier(p1.pos, p2.pos, cp1.pos, cp2.pos);
 
   points.push(p1);
   points.push(p2);
-  points.push(cp);
+  points.push(cp1);
+  points.push(cp2);
+
+  p1 = new Point(450, 200)
+  p2 = new Point(750, 200)
+  let cp = new Point(600, 50)
+
+  quadratic = new QuadraticBezier(p1.pos, p2.pos, cp.pos)
+
+  points.push(p1)
+  points.push(p2)
+  points.push(cp)
+
   t = 0;
 }
 
@@ -49,8 +60,11 @@ function draw() {
     point.draw()
   }
 
-  curve.update(t);
-  curve.draw();
+  cubic.update(t);
+  cubic.draw();
+
+  quadratic.update(t)
+  quadratic.draw();
 }
 
 function mousePressed() {
