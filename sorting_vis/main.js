@@ -15,7 +15,8 @@ function datSetup() {
 function setup() {
   createCanvas(400, 400);
 
-  let arr = generateRandomArr(50);
+  let arr = generateSortedArr(200);
+  randomizeArr(arr);
   s = new Sorter(arr);
 
   noStroke();
