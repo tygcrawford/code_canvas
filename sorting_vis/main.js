@@ -1,4 +1,4 @@
-let sorter;
+let s;
 
 const params = {
 };
@@ -15,9 +15,10 @@ function datSetup() {
 function setup() {
   createCanvas(400, 400);
 
-  let arr = generateSortedArr(200);
+  let arr = generateSortedArr(50);
   randomizeArr(arr);
   s = new Sorter(arr);
+  s.bubbleSortInit();
 
   noStroke();
 }
@@ -25,6 +26,7 @@ function setup() {
 function draw() {
   background(0);
   drawArr(s.arr);
+  s.bubbleSortStep();
 }
 
 function drawArr(arr) {
